@@ -1,0 +1,16 @@
+{% extends 'first/base.html' %}
+{% block title %} Register {% endblock %}
+{% block body_block %}
+    {% if registered %}
+        <h1>Thank You For Registering New Students.</h1>
+        <h2>Go to / to view dashboard.</h2>
+    {% else %}
+    <h1>Welcome to Register Students Page</h1>
+    <h2>Fill in the form to register new student.</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ student_form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+    {% endif %}
+{% endblock %}
